@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,11 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data;
+using WebApplication1.Services;
+using Microsoft.AspNetCore.Http;
+using System.Text.Json;
 
 namespace WebApplication1
 {
@@ -24,6 +29,10 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<JsonFileMovie>();
+
+            services.AddDbContext<WebApplication1Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WebApplication1Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +59,12 @@ namespace WebApplication1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapGet("/test", (context) =>
+                {
+                    var product = app.ApplicationServices.GetService<JsonFileMovie>().GetMovies();
+                    var json = JsonSerializer.Serialize(product);
+                    return context.Response.WriteAsync(json);
+                });
             });
         }
     }
