@@ -30,6 +30,7 @@ namespace WebApplication1
         {
             services.AddRazorPages();
             services.AddTransient<JsonFileMovie>();
+            services.AddControllers();
 
             services.AddDbContext<WebApplication1Context>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("WebApplication1Context")));
@@ -59,12 +60,15 @@ namespace WebApplication1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
+                /*
                 endpoints.MapGet("/test", (context) =>
                 {
                     var product = app.ApplicationServices.GetService<JsonFileMovie>().GetMovies();
                     var json = JsonSerializer.Serialize(product);
                     return context.Response.WriteAsync(json);
                 });
+                */
             });
         }
     }
