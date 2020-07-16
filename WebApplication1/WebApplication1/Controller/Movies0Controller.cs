@@ -25,5 +25,15 @@ namespace WebApplication1.Controller
         {
             return JsonFileMovieService.GetMovies();
         }
+
+        [Route("rating")]
+        [HttpGet]
+        public ActionResult Get(
+            [FromQuery] string movieID,
+            [FromQuery] int rate)
+        {
+            JsonFileMovieService.AddRatings(movieID, rate);
+            return Ok();
+        }
     }
 }

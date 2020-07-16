@@ -18,6 +18,9 @@ namespace WebApplication1.Models
         [JsonPropertyName("title")]
         public string thetitle { get; set; }
 
+        [JsonPropertyName("MyRates")]
+        public int[] rates { get; set; }
+
         public override string ToString() => JsonSerializer.Serialize<Movie>(this);
     }
 }

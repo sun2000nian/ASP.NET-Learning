@@ -1,5 +1,6 @@
 ﻿@page
 @model IndexModel
+@using WebApplication1.Components
 @{
     ViewData["Title"] = "Home page";
 }
@@ -9,15 +10,8 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<div class="card-columns">
-    @foreach (var movie in Model.movies)
-    {
-        <div class="card">
-            <div class="card-body">
-                <h5>@movie.ID</h5>
-                <h5>@movie.maker</h5>
-                <h5>@movie.thetitle</h5>
-            </div>
-        </div>
-    }
-</div>
+@{
+    @(await Html.RenderComponentAsync<MovieList>(RenderMode.ServerPrerendered))
+}
+
+<script src="_framework/blazor.server.js"></script>

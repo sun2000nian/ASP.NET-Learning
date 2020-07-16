@@ -164,3 +164,7 @@ D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\
 D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.genruntimeconfig.cache
 D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\WebApplication1.RazorComponent.input.cache
+D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\RazorDeclaration\Components\MovieList.razor.g.cs
+D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\RazorDeclaration\WebApplication1.dll
+D:\Git\ASP.NET-Learning\WebApplication1\WebApplication1\obj\Debug\netcoreapp3.1\Razor\Components\MovieList.razor.g.cs

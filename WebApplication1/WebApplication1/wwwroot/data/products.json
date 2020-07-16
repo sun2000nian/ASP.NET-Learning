@@ -1,12 +1,17 @@
-﻿[
+[
   {
     "id": "0",
     "maker": "@jenlooper",
-    "title": "product0"
+    "title": "product0",
+    "MyRates": [
+      7,
+      13
+    ]
   },
   {
     "id": "1",
     "maker": "jenlooper",
-    "title": "产品1"
+    "title": "\u4EA7\u54C11",
+    "MyRates": null
   }
 ]

@@ -34,5 +34,34 @@ namespace WebApplication1.Services
                     });
             }
         }
+
+        public void AddRatings(string productID, int rating)
+        {
+            var movie = GetMovies();
+            var query = movie.First(x => x.ID == productID);
+
+            if (query.rates == null)
+            {
+                query.rates = new int[] { rating };
+            }
+            else
+            {
+                var ratings = query.rates.ToList();
+                ratings.Add(rating);
+                query.rates = ratings.ToArray();
+            }
+
+            using (var outputstream = File.OpenWrite(JsonFileName))
+            {
+                JsonSerializer.Serialize<IEnumerable<Movie>>(
+                    new Utf8JsonWriter(outputstream, new JsonWriterOptions
+                    {
+                        SkipValidation = true,
+                        Indented = true
+                    }),
+                    movie
+                    );
+            }
+        }
     }
 }

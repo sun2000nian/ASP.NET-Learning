@@ -29,6 +29,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddServerSideBlazor();
             services.AddTransient<JsonFileMovie>();
             services.AddControllers();
 
@@ -61,6 +62,7 @@ namespace WebApplication1
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+                endpoints.MapBlazorHub();
                 /*
                 endpoints.MapGet("/test", (context) =>
                 {
