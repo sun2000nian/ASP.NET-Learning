@@ -35,9 +35,17 @@ namespace Sample_DB.Pages.Students
             {
                 return Page();
             }
+            var emptyStudent = new Student();
 
-            _context.Students.Add(Student);
-            await _context.SaveChangesAsync();
+            if (await TryUpdateModelAsync<Student>(
+         emptyStudent,
+         "student",   // Prefix for form value.
+         s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
+            {
+                _context.Students.Add(emptyStudent);
+                await _context.SaveChangesAsync();
+                return RedirectToPage("./Index");
+            }
 
             return RedirectToPage("./Index");
         }
